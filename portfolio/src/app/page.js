@@ -1,5 +1,6 @@
 import { Icon } from '@iconify/react';
 import { GitHubCalendar } from 'react-github-calendar';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -31,9 +32,9 @@ export default function Home() {
           <Icon icon="logos:react" className='w-10 h-10' />
         </div>
         
-        <button className="px-3 py-1 max-w-30 border-2 text-sm border-primary rounded-full text-primary hover:bg-primary/10 transition-colors">
+        <Link href="/resume"><button className="px-3 py-1 max-w-30 border-2 text-sm border-primary rounded-full text-primary hover:bg-primary/10 transition-colors">
           My Resume
-        </button>
+        </button></Link>
       </section>
       
       <section className="w-full mb-12 overflow-x-auto">
