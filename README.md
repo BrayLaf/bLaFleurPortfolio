@@ -151,7 +151,7 @@ This project is private and proprietary.
 
 **Braydon Lafleur**
 - GitHub: [@BrayLaf](https://github.com/BrayLaf)
-- Portfolio: [This Website](https://github.com/BrayLaf/Portfolio)
+- Portfolio: [This Website](https://blafleur.vercel.app/)
 
 ## 🙏 Acknowledgments
 
