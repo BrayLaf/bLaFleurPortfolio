@@ -1,3 +1,12 @@
+export const metadata = {
+  title: "Contact",
+  description: "Get in touch with Braydon Lafleur. Contact me for collaboration opportunities, project inquiries, or professional networking.",
+  openGraph: {
+    title: "Contact | Braydon Lafleur",
+    description: "Get in touch with me for collaboration opportunities and project inquiries.",
+  },
+};
+
 export default function Contact() {
     return(
         <div className="flex flex-col max-w-2xl mx-auto items-center px-6 py-8">

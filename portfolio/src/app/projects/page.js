@@ -2,6 +2,15 @@ import { Icon } from '@iconify/react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+export const metadata = {
+  title: "Projects",
+  description: "Explore Braydon Lafleur's portfolio projects including CoursePilot and other full-stack web applications built with React, Node.js, Azure, and modern technologies.",
+  openGraph: {
+    title: "Projects | Braydon Lafleur",
+    description: "Explore my portfolio projects including CoursePilot and other full-stack web applications.",
+  },
+};
+
 export default function Projects() {
     return (
         <div className="flex flex-col max-w-2xl mx-auto items-center px-6 py-8">

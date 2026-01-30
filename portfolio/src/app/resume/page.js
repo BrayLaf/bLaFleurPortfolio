@@ -1,3 +1,12 @@
+export const metadata = {
+  title: "Resume",
+  description: "View Braydon Lafleur's professional resume showcasing experience in full-stack development, JavaScript, React, Node.js, Azure, and database systems.",
+  openGraph: {
+    title: "Resume | Braydon Lafleur",
+    description: "View my professional resume showcasing full-stack development experience and technical skills.",
+  },
+};
+
 export default function Resume(){
     return(
         <div className="flex flex-col max-w-2xl mx-auto items-center ">

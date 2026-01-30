@@ -17,25 +17,69 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Braydon Lafleur | Full-stack Developer",
+  title: {
+    default: "Braydon Lafleur | Full-stack Developer",
+    template: "%s | Braydon Lafleur",
+  },
   description: "Full-stack developer with a passion for tech.",
+  keywords: [
+    "Braydon Lafleur",
+    "Full-stack Developer",
+    "Web Developer",
+    "Software Engineer",
+    "JavaScript Developer",
+    "React Developer",
+    "Next.js Developer",
+    "Node.js Developer",
+    "Azure Developer",
+    "Frontend Developer",
+    "Backend Developer",
+    "Portfolio",
+    "C#",
+    "C++",
+    ".NET",
+    "Express.js",
+    "Supabase",
+    "Git",
+    "GitHub",
+  ],
+  authors: [{ name: "Braydon Lafleur" }],
+  creator: "Braydon Lafleur",
+  publisher: "Braydon Lafleur",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   verification: {
     google: "cu40yGEFIVSPC8HpnnmG573_jdN91bL0EseJ0WIR2QM",
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteUrl,
     title: "Braydon Lafleur | Full-stack Developer",
     description: "Full-stack developer with a passion for tech.",
-    url: siteUrl,
     siteName: "Braydon Lafleur Portfolio",
     images: [
       {
         url: "/mainImg.jpg",
         width: 1200,
         height: 630,
-        alt: "Braydon Lafleur portfolio hero",
+        alt: "Braydon Lafleur - Full-stack Developer Portfolio",
       },
     ],
-    type: "website",
   },
   twitter: {
     card: "summary_large_image",
@@ -44,7 +88,17 @@ export const metadata = {
     images: ["/mainImg.jpg"],
   },
   icons: {
-    apple: "/apple-touch-icon.png",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  alternates: {
+    canonical: siteUrl,
   },
 };
 

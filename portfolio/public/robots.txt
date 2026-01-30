@@ -1,0 +1,11 @@
+# robots.txt for Braydon Lafleur Portfolio
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://blafleur.vercel.app/sitemap.xml
+
+# Block access to unnecessary files
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /*_next/static/development/
