@@ -14,6 +14,35 @@ export const metadata = {
 export default function Projects() {
     return (
         <div className="flex flex-col max-w-2xl mx-auto items-center px-6 py-8">
+            {/* respai hub */}
+            <section className="w-full mb-12">
+                <div className="mb-2">
+                    <h1 className="text-3xl font-semibold text-primary mb-2 border-b">RespAI Hub
+                    </h1>
+                </div>
+                <div className="flex flex-wrap gap-3 mb-3">
+                    <Icon icon="logos:javascript" className='w-7 h-7' />
+                    <Icon icon="material-icon-theme:azure" className='w-7 h-7' />
+                    <Icon icon="logos:figma" className='w-7 h-7' />
+                    <Icon icon="logos:nodejs-icon" className='w-7 h-7' />
+                    <Icon icon="logos:vitejs" className='w-7 h-7' />
+                    <Icon icon="logos:git-icon" className='w-7 h-7' />
+                    <Icon icon="logos:github-icon" className='w-7 h-7' />
+                    <Icon icon="logos:postman-icon" className='w-7 h-7' />
+                    <Icon icon="logos:react" className='w-7 h-7' />
+                    <Icon icon="logos:typescript-icon" className='w-7 h-7' />
+                </div>
+                <Link href=""><button className="px-3 py-1 border-2 text-sm border-primary rounded-full text-primary hover:bg-primary/10 transition-colors font-medium">Private Repo</button></Link>
+                <p className="text-secondary text-sm mb-4 mt-2">
+                    RespAi Hub is a full-stack platform built to help identify, prioritize, and manage outreach opportunities for fire departments across the U.S. It combines public datasets (including FEMA and wildfire-related data), automated data sync workflows, and lead-scoring logic to surface high-value prospects, then provides a secure CRM interface for managing departments, users, and configuration settings. The backend uses serverless API functions and database models for scalable data operations, while the frontend delivers a clean dashboard experience for tracking leads and supporting data-driven decision-making.
+                </p>
+                {/* image placeholders */}
+                <div className="flex gap-4">
+                    <Image quality={90} src="/RespAi Hub.png" alt="RespAI Screenshot 1" className="flex-1 object-contain rounded" width={1920} height={1080}/>
+                </div>
+            </section>
+
+            {/* course pilot  */}
             <section className="w-full mb-12">
                 <div className="mb-2">
                     <h1 className="text-3xl font-semibold text-primary mb-2 border-b">CoursePilot
@@ -40,6 +69,7 @@ export default function Projects() {
                 </div>
             </section>
 
+            {/* nest trading app */}
             <section className="w-full mb-12">
                 <div className="mb-2">
                     <h2 className="text-3xl font-semibold text-primary mb-2 border-b">Nest Trading App</h2>
@@ -62,6 +92,7 @@ export default function Projects() {
                 </div>
             </section>
 
+            {/* portfolio */}
             <section className="w-full mb-12">
                 <div className="mb-2">
                     <h3 className="text-3xl font-semibold text-primary mb-2 border-b">My portfolio</h3>
