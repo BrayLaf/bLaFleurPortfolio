@@ -29,19 +29,19 @@ export default function Header() {
 
     return(
         <div className="sticky top-0 z-50 bg-background border-b-2 border-secondary/10">
-        <header className="flex justify-center max-w-2xl mx-auto items-center px-8 py-6 gap-8 md:gap-52">
-            <div className="flex items-center gap-8">
-                <Link href="/" className="text-2xl font-bold text-primary">
+        <header className="flex justify-between md:justify-center max-w-2xl mx-auto items-center px-5 py-5 md:px-8 md:py-7 md:gap-52">
+            <div className="flex items-center gap-3 md:gap-8">
+                <Link href="/" className="text-xl md:text-2xl font-bold text-primary">
                     LaFleur
                 </Link>
-                <nav className="flex gap-8" >
-                    <Link href="/projects" alt="Projects" className="text-l text-primary hover:text-secondary transition-colors">
+                <nav className="flex gap-3 md:gap-8">
+                    <Link href="/projects" alt="Projects" className="text-sm md:text-base text-primary hover:text-secondary transition-colors">
                         Projects
                     </Link>
-                    <Link href="/tools" alt="Web Tools" className="text-l text-primary hover:text-secondary transition-colors">
+                    <Link href="/tools" alt="Web Tools" className="text-sm md:text-base text-primary hover:text-secondary transition-colors">
                         Tools
                     </Link>
-                    <Link href="/contact" alt="Contact" className="text-l text-primary hover:text-secondary transition-colors">
+                    <Link href="/contact" alt="Contact" className="text-sm md:text-base text-primary hover:text-secondary transition-colors">
                         Contact
                     </Link>
                 </nav>

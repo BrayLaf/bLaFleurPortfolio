@@ -279,7 +279,7 @@ function ColorPaletteTool() {
 
 const ASCII_CHARS = '@#S%?*+;:,. ';
 
-function renderASCII(text, fontSize) {
+function renderASCIIFromText(text, fontSize) {
   const canvas = document.createElement('canvas');
   const ctx = canvas.getContext('2d');
   ctx.font = `bold ${fontSize}px monospace`;
@@ -304,6 +304,29 @@ function renderASCII(text, fontSize) {
   return result;
 }
 
+function renderASCIIFromImage(imgElement, outputWidth) {
+  const aspectRatio = imgElement.naturalHeight / imgElement.naturalWidth;
+  // Characters are ~2x taller than wide, so scale height down by ~0.45 to keep proportions
+  const outputHeight = Math.max(1, Math.floor(outputWidth * aspectRatio * 0.45));
+  const canvas = document.createElement('canvas');
+  canvas.width = outputWidth;
+  canvas.height = outputHeight;
+  const ctx = canvas.getContext('2d');
+  ctx.drawImage(imgElement, 0, 0, outputWidth, outputHeight);
+  const { data } = ctx.getImageData(0, 0, outputWidth, outputHeight);
+  let result = '';
+  for (let y = 0; y < outputHeight; y++) {
+    for (let x = 0; x < outputWidth; x++) {
+      const idx = (y * outputWidth + x) * 4;
+      // Weighted brightness (human eye is more sensitive to green)
+      const brightness = data[idx] * 0.299 + data[idx + 1] * 0.587 + data[idx + 2] * 0.114;
+      result += ASCII_CHARS[Math.floor((1 - brightness / 255) * (ASCII_CHARS.length - 1))];
+    }
+    result += '\n';
+  }
+  return result;
+}
+
 const ASCII_FALLBACKS = [
   { name: 'delphi.tools', url: 'https://delphi.tools' },
   { name: 'patorjk TAAG', url: 'https://patorjk.com/software/taag' },
@@ -311,15 +334,29 @@ const ASCII_FALLBACKS = [
 ];
 
 function ASCIIArtTool() {
+  const [mode, setMode] = useState('text');
+  // Text mode
   const [input, setInput] = useState('');
   const [fontSize, setFontSize] = useState(30);
+  // Image mode
+  const [imageUrl, setImageUrl] = useState(null);
+  const [imageEl, setImageEl] = useState(null);
+  const [outputWidth, setOutputWidth] = useState(80);
+  // Shared
   const [art, setArt] = useState('');
   const [error, setError] = useState(null);
+  const fileInputRef = useRef(null);
 
-  const generate = useCallback(() => {
+  const switchMode = (m) => {
+    setMode(m);
+    setArt('');
+    setError(null);
+  };
+
+  const generateText = useCallback(() => {
     if (!input.trim()) return;
     try {
-      setArt(renderASCII(input.trim(), fontSize));
+      setArt(renderASCIIFromText(input.trim(), fontSize));
       setError(null);
     } catch {
       setError('Generation failed — try an alternative below.');
@@ -327,34 +364,125 @@ function ASCIIArtTool() {
     }
   }, [input, fontSize]);
 
+  const generateImage = useCallback(() => {
+    if (!imageEl) return;
+    try {
+      setArt(renderASCIIFromImage(imageEl, outputWidth));
+      setError(null);
+    } catch {
+      setError('Generation failed — try an alternative below.');
+      setArt('');
+    }
+  }, [imageEl, outputWidth]);
+
+  const handleFileChange = (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (!file.type.startsWith('image/')) {
+      setError('Please upload an image file.');
+      return;
+    }
+    setError(null);
+    setArt('');
+    const url = URL.createObjectURL(file);
+    setImageUrl(url);
+    const img = new Image();
+    img.onload = () => setImageEl(img);
+    img.onerror = () => setError('Could not load image — try an alternative below.');
+    img.src = url;
+  };
+
   return (
     <div>
-      <label className="block text-secondary text-xs mb-1">Text to convert</label>
-      <input
-        type="text"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        placeholder="Hello World"
-        className="w-full p-2 border-2 border-primary rounded-lg bg-transparent text-primary focus:outline-none focus:border-secondary transition-colors text-sm mb-4"
-        onKeyDown={(e) => e.key === 'Enter' && generate()}
-      />
-
-      <div className="flex items-center gap-3 mb-4">
-        <label className="text-secondary text-xs shrink-0">Font size: {fontSize}px</label>
-        <input
-          type="range" min="16" max="50" value={fontSize}
-          onChange={(e) => setFontSize(Number(e.target.value))}
-          className="flex-1 accent-primary"
-        />
+      {/* Mode toggle */}
+      <div className="flex gap-2 mb-4">
+        {['text', 'image'].map((m) => (
+          <button
+            key={m}
+            onClick={() => switchMode(m)}
+            className={`px-3 py-1 border text-xs rounded-full capitalize transition-colors ${
+              mode === m
+                ? 'bg-primary/20 border-primary text-primary'
+                : 'border-secondary/40 text-secondary hover:border-primary hover:text-primary'
+            }`}
+          >
+            {m === 'text' ? 'Text' : 'Upload Image'}
+          </button>
+        ))}
       </div>
 
-      <button
-        onClick={generate}
-        disabled={!input.trim()}
-        className="px-4 py-1 border-2 text-sm border-primary rounded-full text-primary hover:bg-primary/10 transition-colors mb-4 disabled:opacity-40 disabled:cursor-not-allowed"
-      >
-        Generate
-      </button>
+      {mode === 'text' ? (
+        <>
+          <label className="block text-secondary text-xs mb-1">Text to convert</label>
+          <input
+            key="ascii-text-input"
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Hello World"
+            className="w-full p-2 border-2 border-primary rounded-lg bg-transparent text-primary focus:outline-none focus:border-secondary transition-colors text-sm mb-4"
+            onKeyDown={(e) => e.key === 'Enter' && generateText()}
+          />
+          <div className="flex items-center gap-3 mb-4">
+            <label className="text-secondary text-xs shrink-0">Font size: {fontSize}px</label>
+            <input
+              type="range" min="16" max="50" value={fontSize}
+              onChange={(e) => setFontSize(Number(e.target.value))}
+              className="flex-1 accent-primary"
+            />
+          </div>
+          <button
+            onClick={generateText}
+            disabled={!input.trim()}
+            className="px-4 py-1 border-2 text-sm border-primary rounded-full text-primary hover:bg-primary/10 transition-colors mb-4 disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            Generate
+          </button>
+        </>
+      ) : (
+        <>
+          <div
+            onClick={() => fileInputRef.current?.click()}
+            className="w-full border-2 border-dashed border-primary rounded-lg p-6 mb-4 flex flex-col items-center gap-2 cursor-pointer hover:bg-primary/5 transition-colors"
+          >
+            {imageUrl ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={imageUrl} alt="Upload preview" className="max-h-40 object-contain rounded" />
+            ) : (
+              <>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                </svg>
+                <span className="text-secondary text-sm">Click to upload an image</span>
+                <span className="text-secondary text-xs">PNG, JPG, GIF, WebP supported</span>
+              </>
+            )}
+          </div>
+          <input
+            key="ascii-file-input"
+            ref={fileInputRef}
+            type="file"
+            accept="image/*"
+            onChange={handleFileChange}
+            className="hidden"
+          />
+          <div className="flex items-center gap-3 mb-4">
+            <label className="text-secondary text-xs shrink-0">Detail: {outputWidth} cols</label>
+            <input
+              type="range" min="40" max="150" value={outputWidth}
+              onChange={(e) => setOutputWidth(Number(e.target.value))}
+              className="flex-1 accent-primary"
+            />
+          </div>
+          <button
+            onClick={generateImage}
+            disabled={!imageEl}
+            className="px-4 py-1 border-2 text-sm border-primary rounded-full text-primary hover:bg-primary/10 transition-colors mb-4 disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            Generate
+          </button>
+        </>
+      )}
 
       {art && (
         <div>
