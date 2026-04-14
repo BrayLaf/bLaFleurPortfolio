@@ -1,7 +1,7 @@
 export default function sitemap() {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
   
-  const routes = ["", "/projects", "/resume", "/contact"].map((route) => ({
+  const routes = ["", "/projects", "/tools", "/resume", "/contact"].map((route) => ({
     url: `${siteUrl}${route}`,
     lastModified: new Date().toISOString(),
     changeFrequency: route === "" ? "weekly" : "monthly",
