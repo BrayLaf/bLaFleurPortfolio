@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useCallback, useEffect } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import dynamic from 'next/dynamic';
 
 const QRCodeCanvas = dynamic(
@@ -490,7 +490,7 @@ function ASCIIArtTool() {
             <span className="text-secondary text-xs">ASCII Output</span>
             <CopyButton text={art} />
           </div>
-          <pre className="border-2 border-primary rounded-lg p-3 text-primary overflow-x-auto text-[6px] leading-[7px] font-mono select-all">
+          <pre className="border-2 border-primary rounded-lg p-3 text-primary overflow-x-auto text-[6px] leading-1.75 font-mono select-all">
             {art}
           </pre>
         </div>
@@ -508,6 +508,14 @@ function ASCIIArtTool() {
 
 // ─── Base64 ────────────────────────────────────────────────────────────────
 
+function b64encode(str) {
+  return btoa(Array.from(new TextEncoder().encode(str), (b) => String.fromCharCode(b)).join(''));
+}
+
+function b64decode(str) {
+  return new TextDecoder().decode(Uint8Array.from(atob(str), (c) => c.charCodeAt(0)));
+}
+
 const BASE64_FALLBACKS = [
   { name: 'delphi.tools', url: 'https://delphi.tools' },
   { name: 'Base64 Encode', url: 'https://www.base64encode.org' },
@@ -517,23 +525,16 @@ const BASE64_FALLBACKS = [
 function Base64Tool() {
   const [mode, setMode] = useState('encode');
   const [input, setInput] = useState('');
-  const [output, setOutput] = useState('');
-  const [error, setError] = useState(null);
 
-  useEffect(() => {
-    if (!input) { setOutput(''); setError(null); return; }
+  let output = '';
+  let error = null;
+  if (input) {
     try {
-      setOutput(
-        mode === 'encode'
-          ? btoa(unescape(encodeURIComponent(input)))
-          : decodeURIComponent(escape(atob(input)))
-      );
-      setError(null);
+      output = mode === 'encode' ? b64encode(input) : b64decode(input);
     } catch {
-      setOutput('');
-      setError(`Invalid input for ${mode === 'encode' ? 'encoding' : 'decoding'}.`);
+      error = `Invalid input for ${mode === 'encode' ? 'encoding' : 'decoding'}.`;
     }
-  }, [input, mode]);
+  }
 
   return (
     <div>
@@ -541,7 +542,7 @@ function Base64Tool() {
         {['encode', 'decode'].map((m) => (
           <button
             key={m}
-            onClick={() => { setMode(m); setInput(''); setOutput(''); setError(null); }}
+            onClick={() => { setMode(m); setInput(''); }}
             className={`px-3 py-1 border text-xs rounded-full capitalize transition-colors ${
               mode === m
                 ? 'bg-primary/20 border-primary text-primary'
@@ -611,30 +612,42 @@ function scorePassword(length, opts) {
   return { label: 'Very Strong', color: 'text-emerald-400' };
 }
 
+const DEFAULT_PW_LENGTH = 16;
+const DEFAULT_PW_OPTS = { uppercase: true, lowercase: true, numbers: true, symbols: false };
+
+function buildPassword(length, opts) {
+  const chars = Object.entries(opts)
+    .filter(([, on]) => on)
+    .map(([k]) => CHARSETS[k])
+    .join('');
+  if (!chars) return { password: '', error: 'Select at least one character type.' };
+  const arr = new Uint32Array(length);
+  crypto.getRandomValues(arr);
+  return { password: Array.from(arr, (v) => chars[v % chars.length]).join(''), error: null };
+}
+
 function PasswordTool() {
-  const [length, setLength] = useState(16);
-  const [opts, setOpts] = useState({ uppercase: true, lowercase: true, numbers: true, symbols: false });
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState(null);
-
-  const generate = useCallback(() => {
-    const chars = Object.entries(opts)
-      .filter(([, on]) => on)
-      .map(([k]) => CHARSETS[k])
-      .join('');
-    if (!chars) { setError('Select at least one character type.'); return; }
-    setError(null);
-    const arr = new Uint32Array(length);
-    crypto.getRandomValues(arr);
-    setPassword(Array.from(arr, (v) => chars[v % chars.length]).join(''));
-  }, [length, opts]);
-
-  useEffect(() => { generate(); }, [generate]);
+  const [length, setLength] = useState(DEFAULT_PW_LENGTH);
+  const [opts, setOpts] = useState(DEFAULT_PW_OPTS);
+  const [{ password, error }, setResult] = useState(() =>
+    buildPassword(DEFAULT_PW_LENGTH, DEFAULT_PW_OPTS)
+  );
 
   const strength = scorePassword(length, opts);
 
   return (
     <div>
+      <div className="flex items-start gap-2 p-3 mb-5 border border-secondary/20 rounded-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-secondary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+        </svg>
+        <p className="text-secondary text-xs leading-relaxed">
+          Passwords are generated entirely in your browser using{' '}
+          <code className="font-mono text-primary">crypto.getRandomValues()</code>
+          {' '}— never sent to a server, never written to localStorage, and gone the moment you leave this page.
+        </p>
+      </div>
+
       <div className="mb-4">
         <div className="flex justify-between mb-1">
           <label className="text-secondary text-xs">Length: {length}</label>
@@ -642,7 +655,11 @@ function PasswordTool() {
         </div>
         <input
           type="range" min="4" max="64" value={length}
-          onChange={(e) => setLength(Number(e.target.value))}
+          onChange={(e) => {
+            const newLength = Number(e.target.value);
+            setLength(newLength);
+            setResult(buildPassword(newLength, opts));
+          }}
           className="w-full accent-primary"
         />
       </div>
@@ -653,7 +670,11 @@ function PasswordTool() {
             <input
               type="checkbox"
               checked={opts[key]}
-              onChange={(e) => setOpts((p) => ({ ...p, [key]: e.target.checked }))}
+              onChange={(e) => {
+                const newOpts = { ...opts, [key]: e.target.checked };
+                setOpts(newOpts);
+                setResult(buildPassword(length, newOpts));
+              }}
               className="accent-primary w-4 h-4"
             />
             <span className="text-primary text-sm capitalize">{key}</span>
@@ -668,7 +689,7 @@ function PasswordTool() {
             <div className="flex gap-2">
               <CopyButton text={password} />
               <button
-                onClick={generate}
+                onClick={() => setResult(buildPassword(length, opts))}
                 className="px-3 py-1 border-2 text-xs border-primary rounded-full text-primary hover:bg-primary/10 transition-colors"
               >
                 Regenerate
@@ -782,7 +803,7 @@ const TOOLS = [
   { id: 'palette',  label: 'Color Palette',  desc: 'Generate color palettes from a base color',    Component: ColorPaletteTool },
   { id: 'ascii',    label: 'ASCII Art',      desc: 'Convert text into ASCII character art',        Component: ASCIIArtTool },
   { id: 'base64',   label: 'Base64',         desc: 'Encode and decode Base64 strings',             Component: Base64Tool },
-  { id: 'password', label: 'Password',       desc: 'Generate cryptographically secure passwords',  Component: PasswordTool },
+  { id: 'password', label: 'Password',       desc: 'Generate cryptographically secure passwords — browser-only, never stored', Component: PasswordTool },
   { id: 'json',     label: 'JSON',           desc: 'Format, validate, and minify JSON',            Component: JSONTool },
 ];
 
