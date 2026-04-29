@@ -75,36 +75,48 @@ export default function Contact() {
                     </div>
                 )}
                 <form className="flex flex-col gap-4 w-full" onSubmit={handleSubmit}>
-                    <input 
-                        type="text" 
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        className="p-2 border-2 border-primary rounded-lg bg-transparent text-primary focus:outline-none focus:border-secondary transition-colors" 
-                        placeholder="Name:"
-                        required
-                    />
-                    <input 
-                        type="email" 
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="p-2 border-2 border-primary rounded-lg bg-transparent text-primary focus:outline-none focus:border-secondary transition-colors" 
-                        placeholder="Email:"
-                        required
-                    />
-                    <input 
-                        type="text" 
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleChange}
-                        className="p-2 border-2 border-primary rounded-lg bg-transparent text-primary focus:outline-none focus:border-secondary transition-colors" 
-                        placeholder="Subject:"
-                        required
-                    />
+                    <div className="flex flex-col gap-1">
+                        <label htmlFor="name" className="sr-only">Name</label>
+                        <input
+                            id="name"
+                            type="text"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            className="p-2 border-2 border-primary rounded-lg bg-transparent text-primary focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 transition-colors"
+                            placeholder="Name:"
+                            required
+                        />
+                    </div>
+                    <div className="flex flex-col gap-1">
+                        <label htmlFor="email" className="sr-only">Email address</label>
+                        <input
+                            id="email"
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            className="p-2 border-2 border-primary rounded-lg bg-transparent text-primary focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 transition-colors"
+                            placeholder="Email:"
+                            required
+                        />
+                    </div>
+                    <div className="flex flex-col gap-1">
+                        <label htmlFor="subject" className="sr-only">Subject</label>
+                        <input
+                            id="subject"
+                            type="text"
+                            name="subject"
+                            value={formData.subject}
+                            onChange={handleChange}
+                            className="p-2 border-2 border-primary rounded-lg bg-transparent text-primary focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 transition-colors"
+                            placeholder="Subject:"
+                            required
+                        />
+                    </div>
                     {/* Honeypot field - hidden from users */}
-                    <input 
-                        type="text" 
+                    <input
+                        type="text"
                         name="website"
                         value={formData.website}
                         onChange={handleChange}
@@ -112,17 +124,21 @@ export default function Contact() {
                         tabIndex="-1"
                         autoComplete="off"
                     />
-                    <textarea 
-                        name="message"
-                        value={formData.message}
-                        onChange={handleChange}
-                        className="p-2 border-2 border-primary rounded-lg bg-transparent text-primary focus:outline-none focus:border-secondary transition-colors" 
-                        rows="6" 
-                        placeholder="Message:"
-                        required
-                    ></textarea>
-                    <button 
-                        type="submit" 
+                    <div className="flex flex-col gap-1">
+                        <label htmlFor="message" className="sr-only">Message</label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            value={formData.message}
+                            onChange={handleChange}
+                            className="p-2 border-2 border-primary rounded-lg bg-transparent text-primary focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 transition-colors"
+                            rows="6"
+                            placeholder="Message:"
+                            required
+                        ></textarea>
+                    </div>
+                    <button
+                        type="submit"
                         className="px-3 py-1 max-w-30 border-2 text-sm border-primary rounded-lg text-primary hover:bg-primary/10 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                         disabled={loading}
                     >

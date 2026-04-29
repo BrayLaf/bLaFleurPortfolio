@@ -23,13 +23,13 @@ export default function Footer() {
   return (
     <footer>
       <div className="flex justify-center gap-8 pb-8">
-        <Link href="https://linkedin.com/in/braydonlafleur" target="_blank">
+        <Link href="https://linkedin.com/in/braydonlafleur" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
           <LinkedInIcon />
         </Link>
-        <Link href="https://github.com/BrayLaf" target="_blank">
+        <Link href="https://github.com/BrayLaf" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
           <GitHubIcon />
         </Link>
-        <Link href="mailto:bdlafleur21@gmail.com">
+        <Link href="mailto:bdlafleur21@gmail.com" aria-label="Send email">
           <EmailIcon />
         </Link>
       </div>

@@ -2,9 +2,11 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 
 export default function Header() {
+    const pathname = usePathname();
     const [isDarkMode, setIsDarkMode] = useState(() => {
         if (typeof window !== 'undefined') {
             const savedTheme = localStorage.getItem('theme');
@@ -27,6 +29,13 @@ export default function Header() {
         document.documentElement.classList.toggle('light');
     };
 
+    const navLinkClass = (href) =>
+        `text-sm md:text-base transition-colors ${
+            pathname === href
+                ? 'text-primary font-semibold underline underline-offset-4'
+                : 'text-primary hover:text-secondary'
+        }`;
+
     return(
         <div className="sticky top-0 z-50 bg-background border-b-2 border-secondary/10">
         <header className="flex justify-between md:justify-center max-w-2xl mx-auto items-center px-5 py-5 md:px-8 md:py-7 md:gap-52">
@@ -35,18 +44,18 @@ export default function Header() {
                     LaFleur
                 </Link>
                 <nav className="flex gap-3 md:gap-8">
-                    <Link href="/projects" alt="Projects" className="text-sm md:text-base text-primary hover:text-secondary transition-colors">
+                    <Link href="/projects" className={navLinkClass('/projects')} aria-current={pathname === '/projects' ? 'page' : undefined}>
                         Projects
                     </Link>
-                    <Link href="/tools" alt="Web Tools" className="text-sm md:text-base text-primary hover:text-secondary transition-colors">
+                    <Link href="/tools" className={navLinkClass('/tools')} aria-current={pathname === '/tools' ? 'page' : undefined}>
                         Tools
                     </Link>
-                    <Link href="/contact" alt="Contact" className="text-sm md:text-base text-primary hover:text-secondary transition-colors">
+                    <Link href="/contact" className={navLinkClass('/contact')} aria-current={pathname === '/contact' ? 'page' : undefined}>
                         Contact
                     </Link>
                 </nav>
             </div>
-            <button onClick={toggleTheme} className="p-2 border-2 border-primary rounded-lg hover:bg-primary/10 transition-colors" aria-label="Toggle theme">
+            <button onClick={toggleTheme} className="p-2 border-2 border-primary rounded-lg hover:bg-primary/10 transition-colors" aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}>
                 {isDarkMode ? (
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <circle cx="12" cy="12" r="4" />

@@ -11,7 +11,7 @@ export default function Home() {
         
         <h1 className="text-3xl font-bold text-primary mb-4">Braydon Lafleur</h1>
         
-        <p className="text-secondary text-sm mb-6 max-w-md">
+        <p className="text-foreground/70 text-sm mb-6 max-w-md">
           Full-Stack Developer with a passion for all things tech. Skilled in backend systems, relational databases, and cloud services. Always eager to learn and take on new challenges.
         </p>
         
@@ -37,9 +37,9 @@ export default function Home() {
           <Icon icon="logos:java" className='w-10 h-10' />
         </div>
         
-        <button className="px-3 py-1 max-w-30 border-2 text-sm border-primary rounded-full text-primary hover:bg-primary/10 transition-colors">
-          <Link href="/resume">My Resume</Link>
-        </button>
+        <Link href="/resume" className="px-3 py-1 max-w-30 border-2 text-sm border-primary rounded-full text-primary hover:bg-primary/10 transition-colors">
+          My Resume
+        </Link>
       </section>
       
       <section className="w-full mb-12 overflow-x-auto">
@@ -56,8 +56,8 @@ export default function Home() {
       {/* resp ai hub, course pilot */}
        <section className="w-full mb-12">
                 <div className="mb-2">
-                    <h1 className="text-3xl font-semibold text-primary mb-2 border-b">RespAI Hub
-                    </h1>
+                    <h2 className="text-3xl font-semibold text-primary mb-2 border-b">RespAI Hub
+                    </h2>
                 </div>
                 <div className="flex flex-wrap gap-3 mb-3">
                     <Icon icon="logos:javascript" className='w-7 h-7' />
@@ -71,8 +71,8 @@ export default function Home() {
                     <Icon icon="logos:react" className='w-7 h-7' />
                     <Icon icon="logos:typescript-icon" className='w-7 h-7' />
                 </div>
-                <Link href=""><button className="px-3 py-1 border-2 text-sm border-primary rounded-full text-primary hover:bg-primary/10 transition-colors font-medium">Private Repo</button></Link>
-                <p className="text-secondary text-sm mb-4 mt-2">
+                <span className="inline-block px-3 py-1 border-2 text-sm border-primary/40 rounded-full text-primary/40 cursor-default font-medium" title="This repository is private">Private Repo</span>
+                <p className="text-foreground/70 text-sm mb-4 mt-2">
                     RespAi Hub is a full-stack platform built to help identify, prioritize, and manage outreach opportunities for fire departments across the U.S. It combines public datasets (including FEMA and wildfire-related data), automated data sync workflows, and lead-scoring logic to surface high-value prospects, then provides a secure CRM interface for managing departments, users, and configuration settings. The backend uses serverless API functions and database models for scalable data operations, while the frontend delivers a clean dashboard experience for tracking leads and supporting data-driven decision-making.
                 </p>
                 {/* image placeholders */}
@@ -83,8 +83,8 @@ export default function Home() {
       
        <section className="w-full mb-12">
                 <div className="mb-2">
-                    <h1 className="text-3xl font-semibold text-primary mb-2 border-b">CoursePilot
-                    </h1>
+                    <h2 className="text-3xl font-semibold text-primary mb-2 border-b">CoursePilot
+                    </h2>
                 </div>
                 <div className="flex flex-wrap gap-3 mb-3">
                     <Icon icon="logos:javascript" className='w-7 h-7' />
@@ -97,8 +97,8 @@ export default function Home() {
                     <Icon icon="logos:postman-icon" className='w-7 h-7' />
                     <Icon icon="logos:react" className='w-7 h-7' />
                 </div>
-                <Link href="https://github.com/ShadeKnightly/CoursePilot"><button className="px-3 py-1 border-2 text-sm border-primary rounded-full text-primary hover:bg-primary/10 transition-colors font-medium">Repo Link</button></Link>
-                <p className="text-secondary text-sm mb-4 mt-2">
+                <Link href="https://github.com/ShadeKnightly/CoursePilot" className="inline-block px-3 py-1 border-2 text-sm border-primary rounded-full text-primary hover:bg-primary/10 transition-colors font-medium">Repo Link</Link>
+                <p className="text-foreground/70 text-sm mb-4 mt-2">
                     CoursePilot is a full-stack web application designed to streamline course discovery and registration for software development students. Built with a React frontend and a Node.js/Express backend, it features user authentication, course browsing, and enrollment functionalities. The application integrates with a SQL server hosted on Azure to manage course data and user information securely. Key features include a responsive design, intuitive user interface, and robust backend services to ensure a seamless user experience.
                 </p>
                 <div className="flex gap-4">
@@ -118,8 +118,8 @@ export default function Home() {
                     <Icon icon="logos:github-icon" className='w-7 h-7' />
                     <Icon icon="logos:supabase-icon" className='w-7 h-7' />
                 </div>
-                <Link href="https://github.com/ShadeKnightly/Day-trading-app"><button className="px-3 py-1 border-2 text-sm border-primary rounded-full text-primary hover:bg-primary/10 transition-colors font-medium">Repo Link</button></Link>
-                <p className="text-secondary text-sm mb-4 mt-2">
+                <Link href="https://github.com/ShadeKnightly/Day-trading-app" className="inline-block px-3 py-1 border-2 text-sm border-primary rounded-full text-primary hover:bg-primary/10 transition-colors font-medium">Repo Link</Link>
+                <p className="text-foreground/70 text-sm mb-4 mt-2">
                     Nest is a trading app made to simplify the stock trading experience for users. Developed using C# and the .NET framework, the application offers a user-friendly interface designed in Figma, ensuring an intuitive user experience. Nest integrates with Supabase for secure user authentication and data management, allowing users to track their portfolios. The app focuses on providing real-time market data, personalized watchlists, and comprehensive analytics to help users make informed trading decisions.
                 </p>
                 {/* image placeholders */}
