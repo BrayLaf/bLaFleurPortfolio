@@ -1,6 +1,6 @@
 import { Icon } from '@iconify/react';
 import Link from 'next/link';
-import Image from 'next/image';
+import ProjectShowcase from '@/components/ProjectShowcase';
 
 export const metadata = {
   title: "Projects",
@@ -38,13 +38,15 @@ export default function Projects() {
                 <p className="text-foreground/70 text-sm mb-4 mt-2">
                     RespAi Hub is a full-stack platform built to help identify, prioritize, and manage outreach opportunities for fire departments across the U.S. It combines public datasets (including FEMA and wildfire-related data), automated data sync workflows, and lead-scoring logic to surface high-value prospects, then provides a secure CRM interface for managing departments, users, and configuration settings. The backend uses serverless API functions and database models for scalable data operations, while the frontend delivers a clean dashboard experience for tracking leads and supporting data-driven decision-making.
                 </p>
-                {/* image placeholders */}
-                <div className="flex gap-4">
-                    <Image quality={90} src="/RespAi Hub.png" alt="RespAI Screenshot 1" className="flex-1 object-contain rounded" width={1920} height={1080}/>
-                </div>
+                <ProjectShowcase
+                    videoSrc={null}
+                    images={[
+                        { src: '/RespAi Hub.png', alt: 'RespAI Hub dashboard' },
+                    ]}
+                />
             </section>
 
-            {/* course pilot  */}
+            {/* course pilot */}
             <section className="w-full mb-12">
                 <div className="mb-2">
                     <h2 className="text-3xl font-semibold text-primary mb-2 border-b">CoursePilot
@@ -65,10 +67,12 @@ export default function Projects() {
                 <p className="text-foreground/70 text-sm mb-4 mt-2">
                     CoursePilot is a full-stack web application designed to streamline course discovery and registration for software development students. Built with a React frontend and a Node.js/Express backend, it features user authentication, course browsing, and enrollment functionalities. The application integrates with a SQL server hosted on Azure to manage course data and user information securely. Key features include a responsive design, intuitive user interface, and robust backend services to ensure a seamless user experience.
                 </p>
-                {/* image placeholders */}
-                <div className="flex gap-4">
-                    <Image quality={90} src="/CoursePilot.png" alt="CoursePilot Screenshot 1" className="flex-1 object-contain rounded" width={1920} height={1080}/>
-                </div>
+                <ProjectShowcase
+                    videoSrc={null}
+                    images={[
+                        { src: '/CoursePilot.png', alt: 'CoursePilot course browser' },
+                    ]}
+                />
             </section>
 
             {/* nest trading app */}
@@ -88,10 +92,12 @@ export default function Projects() {
                 <p className="text-foreground/70 text-sm mb-4 mt-2">
                     Nest is a trading app made to simplify the stock trading experience for users. Developed using C# and the .NET framework, the application offers a user-friendly interface designed in Figma, ensuring an intuitive user experience. Nest integrates with Supabase for secure user authentication and data management, allowing users to track their portfolios. The app focuses on providing real-time market data, personalized watchlists, and comprehensive analytics to help users make informed trading decisions.
                 </p>
-                {/* image placeholders */}
-                <div className="flex gap-4">
-                    <Image quality={90} src="/NestSc.png" alt="Nest Trading App Screenshot 1" className="flex-1 object-contain rounded" width={1920} height={1080}/>
-                </div>
+                <ProjectShowcase
+                    videoSrc={null}
+                    images={[
+                        { src: '/NestSc.png', alt: 'Nest Trading App dashboard' },
+                    ]}
+                />
             </section>
 
             {/* portfolio */}
@@ -111,6 +117,10 @@ export default function Projects() {
                 <p className="text-foreground/70 text-sm mb-4 mt-2">
                     The website you are currently viewing! This portfolio site is built using Next.js and React, showcasing my projects, skills, and professional background. It features a responsive design, dark/light mode toggle, and interactive elements to enhance user experience. The site is optimized for performance and accessibility, ensuring it looks great on all devices. It serves as a central hub for potential employers and collaborators to learn more about my work and get in touch.
                 </p>
+                <ProjectShowcase
+                    videoSrc={null}
+                    images={[]}
+                />
             </section>
         </div>
     )
