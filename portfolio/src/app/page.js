@@ -38,7 +38,7 @@ export default function Home() {
         </div>
         
         <Link href="/resume" className="px-3 py-1 max-w-30 border-2 text-sm border-primary rounded-full text-primary hover:bg-primary/10 transition-colors">
-          My Resume
+        My Resume
         </Link>
       </section>
       
@@ -53,80 +53,54 @@ export default function Home() {
         </div>
       </section>
 
-      {/* resp ai hub, course pilot */}
-       <section className="w-full mb-12">
-                <div className="mb-2">
-                    <h2 className="text-3xl font-semibold text-primary mb-2 border-b">RespAI Hub
-                    </h2>
-                </div>
-                <div className="flex flex-wrap gap-3 mb-3">
-                    <Icon icon="logos:javascript" className='w-7 h-7' />
-                    <Icon icon="material-icon-theme:azure" className='w-7 h-7' />
-                    <Icon icon="logos:figma" className='w-7 h-7' />
-                    <Icon icon="logos:nodejs-icon" className='w-7 h-7' />
-                    <Icon icon="logos:vitejs" className='w-7 h-7' />
-                    <Icon icon="logos:git-icon" className='w-7 h-7' />
-                    <Icon icon="logos:github-icon" className='w-7 h-7' />
-                    <Icon icon="logos:postman-icon" className='w-7 h-7' />
-                    <Icon icon="logos:react" className='w-7 h-7' />
-                    <Icon icon="logos:typescript-icon" className='w-7 h-7' />
-                </div>
-                <span className="inline-block px-3 py-1 border-2 text-sm border-primary/40 rounded-full text-primary/40 cursor-default font-medium" title="This repository is private">Private Repo</span>
-                <p className="text-foreground/70 text-sm mb-4 mt-2">
-                    RespAi Hub is a full-stack platform built to help identify, prioritize, and manage outreach opportunities for fire departments across the U.S. It combines public datasets (including FEMA and wildfire-related data), automated data sync workflows, and lead-scoring logic to surface high-value prospects, then provides a secure CRM interface for managing departments, users, and configuration settings. The backend uses serverless API functions and database models for scalable data operations, while the frontend delivers a clean dashboard experience for tracking leads and supporting data-driven decision-making.
-                </p>
-                {/* image placeholders */}
-                <div className="flex gap-4">
-                    <Image quality={90} src="/RespAi Hub.png" alt="RespAI Screenshot 1" className="flex-1 object-contain rounded" width={1920} height={1080}/>
-                </div>
-            </section>
-      
-       <section className="w-full mb-12">
-                <div className="mb-2">
-                    <h2 className="text-3xl font-semibold text-primary mb-2 border-b">CoursePilot
-                    </h2>
-                </div>
-                <div className="flex flex-wrap gap-3 mb-3">
-                    <Icon icon="logos:javascript" className='w-7 h-7' />
-                    <Icon icon="material-icon-theme:azure" className='w-7 h-7' />
-                    <Icon icon="logos:figma" className='w-7 h-7' />
-                    <Icon icon="logos:nodejs-icon" className='w-7 h-7' />
-                    <Icon icon="skill-icons:expressjs-light" className='w-7 h-7' />
-                    <Icon icon="logos:git-icon" className='w-7 h-7' />
-                    <Icon icon="logos:github-icon" className='w-7 h-7' />
-                    <Icon icon="logos:postman-icon" className='w-7 h-7' />
-                    <Icon icon="logos:react" className='w-7 h-7' />
-                </div>
-                <Link href="https://github.com/ShadeKnightly/CoursePilot" className="inline-block px-3 py-1 border-2 text-sm border-primary rounded-full text-primary hover:bg-primary/10 transition-colors font-medium">Repo Link</Link>
-                <p className="text-foreground/70 text-sm mb-4 mt-2">
-                    CoursePilot is a full-stack web application designed to streamline course discovery and registration for software development students. Built with a React frontend and a Node.js/Express backend, it features user authentication, course browsing, and enrollment functionalities. The application integrates with a SQL server hosted on Azure to manage course data and user information securely. Key features include a responsive design, intuitive user interface, and robust backend services to ensure a seamless user experience.
-                </p>
-                <div className="flex gap-4">
-                    <Image quality={90} src="/CoursePilot.png" alt="CoursePilot Screenshot 1" className="flex-1 object-contain rounded" width={1920} height={1080}/>
-                </div>
-            </section>
+      <section className="w-full mb-6">
+        <h2 className="text-xl font-semibold text-primary mb-4 border-b">Projects</h2>
+        <div className="flex flex-col gap-5">
 
-            <section className="w-full mb-12">
-                <div className="mb-2">
-                    <h2 className="text-3xl font-semibold text-primary mb-2 border-b">Nest Trading App</h2>
-                </div>
-                <div className="flex flex-wrap gap-3 mb-6">
-                    <Icon icon="logos:figma" className='w-7 h-7' />
-                    <Icon icon="logos:c-sharp" className='w-7 h-7' />
-                    <Icon icon="logos:dotnet" className='w-7 h-7' />
-                    <Icon icon="logos:git-icon" className='w-7 h-7' />
-                    <Icon icon="logos:github-icon" className='w-7 h-7' />
-                    <Icon icon="logos:supabase-icon" className='w-7 h-7' />
-                </div>
-                <Link href="https://github.com/ShadeKnightly/Day-trading-app" className="inline-block px-3 py-1 border-2 text-sm border-primary rounded-full text-primary hover:bg-primary/10 transition-colors font-medium">Repo Link</Link>
-                <p className="text-foreground/70 text-sm mb-4 mt-2">
-                    Nest is a trading app made to simplify the stock trading experience for users. Developed using C# and the .NET framework, the application offers a user-friendly interface designed in Figma, ensuring an intuitive user experience. Nest integrates with Supabase for secure user authentication and data management, allowing users to track their portfolios. The app focuses on providing real-time market data, personalized watchlists, and comprehensive analytics to help users make informed trading decisions.
-                </p>
-                {/* image placeholders */}
-                <div className="flex gap-4">
-                    <Image quality={90} src="/NestSc.png" alt="Nest Trading App Screenshot 1" className="flex-1 object-contain rounded" width={1920} height={1080}/>
-                </div>
-            </section>
+          <div>
+            <div className="flex items-center justify-between mb-1">
+              <h3 className="text-base font-semibold text-primary">RespAI Hub</h3>
+              <Link href="/projects#respai-hub" className="text-xs text-primary/60 hover:text-primary transition-colors">View project →</Link>
+            </div>
+            <p className="text-foreground/70 text-sm mb-2">Lead-scoring CRM for fire department outreach — syncs FEMA datasets, scores prospects, and surfaces them in a React dashboard.</p>
+            <div className="flex flex-wrap gap-2">
+              <Icon icon="logos:react" className='w-5 h-5' />
+              <Icon icon="logos:nodejs-icon" className='w-5 h-5' />
+              <Icon icon="material-icon-theme:azure" className='w-5 h-5' />
+              <Icon icon="logos:typescript-icon" className='w-5 h-5' />
+            </div>
+          </div>
+
+          <div>
+            <div className="flex items-center justify-between mb-1">
+              <h3 className="text-base font-semibold text-primary">CoursePilot</h3>
+              <Link href="/projects#coursepilot" className="text-xs text-primary/60 hover:text-primary transition-colors">View project →</Link>
+            </div>
+            <p className="text-foreground/70 text-sm mb-2">Course discovery and enrollment app — React frontend, Node/Express backend, Azure SQL.</p>
+            <div className="flex flex-wrap gap-2">
+              <Icon icon="logos:react" className='w-5 h-5' />
+              <Icon icon="logos:nodejs-icon" className='w-5 h-5' />
+              <Icon icon="skill-icons:expressjs-light" className='w-5 h-5' />
+              <Icon icon="material-icon-theme:azure" className='w-5 h-5' />
+            </div>
+          </div>
+
+          <div>
+            <div className="flex items-center justify-between mb-1">
+              <h3 className="text-base font-semibold text-primary">Nest Trading App</h3>
+              <Link href="/projects#nest-trading-app" className="text-xs text-primary/60 hover:text-primary transition-colors">View project →</Link>
+            </div>
+            <p className="text-foreground/70 text-sm mb-2">Stock trading app with real-time data, watchlists, and portfolio tracking — built in C#/.NET with Supabase auth.</p>
+            <div className="flex flex-wrap gap-2">
+              <Icon icon="logos:c-sharp" className='w-5 h-5' />
+              <Icon icon="logos:dotnet" className='w-5 h-5' />
+              <Icon icon="logos:supabase-icon" className='w-5 h-5' />
+              <Icon icon="logos:figma" className='w-5 h-5' />
+            </div>
+          </div>
+
+        </div>
+      </section>
             
     </div>
   );

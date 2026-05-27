@@ -17,7 +17,7 @@ export default function Projects() {
             <h1 className="sr-only">Projects</h1>
 
             {/* respai hub */}
-            <section className="w-full mb-12">
+            <section id="respai-hub" className="w-full mb-12">
                 <div className="mb-2">
                     <h2 className="text-3xl font-semibold text-primary mb-2 border-b">RespAI Hub
                     </h2>
@@ -39,15 +39,19 @@ export default function Projects() {
                     RespAi Hub is a full-stack platform built to help identify, prioritize, and manage outreach opportunities for fire departments across the U.S. It combines public datasets (including FEMA and wildfire-related data), automated data sync workflows, and lead-scoring logic to surface high-value prospects, then provides a secure CRM interface for managing departments, users, and configuration settings. The backend uses serverless API functions and database models for scalable data operations, while the frontend delivers a clean dashboard experience for tracking leads and supporting data-driven decision-making.
                 </p>
                 <ProjectShowcase
-                    videoSrc={null}
+                    videoSrc="/videos/RespAiDemo.mp4"
                     images={[
-                        { src: '/RespAi Hub.png', alt: 'RespAI Hub dashboard' },
+                        { src: '/demo/RespAiHome.webp', alt: 'RespAI Hub home', label: 'Home' },
+                        { src: '/demo/RespAiDashboard.webp', alt: 'RespAI Hub dashboard', label: 'Dashboard' },
+                        { src: '/demo/RespAiDepartments.webp', alt: 'RespAI Hub departments', label: 'Departments' },
+                        { src: '/demo/RespAiSettings.webp', alt: 'RespAI Hub settings', label: 'Settings' },
+                        { src: '/demo/RespAiUserManagement.webp', alt: 'RespAI Hub user management', label: 'User Management' },
                     ]}
                 />
             </section>
 
             {/* course pilot */}
-            <section className="w-full mb-12">
+            <section id="coursepilot" className="w-full mb-12">
                 <div className="mb-2">
                     <h2 className="text-3xl font-semibold text-primary mb-2 border-b">CoursePilot
                     </h2>
@@ -68,15 +72,17 @@ export default function Projects() {
                     CoursePilot is a full-stack web application designed to streamline course discovery and registration for software development students. Built with a React frontend and a Node.js/Express backend, it features user authentication, course browsing, and enrollment functionalities. The application integrates with a SQL server hosted on Azure to manage course data and user information securely. Key features include a responsive design, intuitive user interface, and robust backend services to ensure a seamless user experience.
                 </p>
                 <ProjectShowcase
-                    videoSrc={null}
+                    videoSrc="/videos/CoursePilot.mp4"
                     images={[
-                        { src: '/CoursePilot.png', alt: 'CoursePilot course browser' },
+                        { src: '/demo/pilotPreview.webp', alt: 'CoursePilot preview', label: 'Preview' },
+                        { src: '/demo/pilotCourses.webp', alt: 'CoursePilot courses', label: 'Courses' },
+                        { src: '/demo/pilotFigma.webp', alt: 'CoursePilot Figma design', label: 'Figma Design' },
                     ]}
                 />
             </section>
 
             {/* nest trading app */}
-            <section className="w-full mb-12">
+            <section id="nest-trading-app" className="w-full mb-12">
                 <div className="mb-2">
                     <h2 className="text-3xl font-semibold text-primary mb-2 border-b">Nest Trading App</h2>
                 </div>
@@ -93,15 +99,18 @@ export default function Projects() {
                     Nest is a trading app made to simplify the stock trading experience for users. Developed using C# and the .NET framework, the application offers a user-friendly interface designed in Figma, ensuring an intuitive user experience. Nest integrates with Supabase for secure user authentication and data management, allowing users to track their portfolios. The app focuses on providing real-time market data, personalized watchlists, and comprehensive analytics to help users make informed trading decisions.
                 </p>
                 <ProjectShowcase
-                    videoSrc={null}
+                    videoSrc="/videos/NestTradingApp.mp4"
                     images={[
-                        { src: '/NestSc.png', alt: 'Nest Trading App dashboard' },
+                        { src: '/demo/nestHomepage.webp', alt: 'Nest Trading App homepage', label: 'Homepage' },
+                        { src: '/demo/nestStockview.webp', alt: 'Nest Trading App stock view', label: 'Stock View' },
+                        { src: '/demo/nestWatchlist.webp', alt: 'Nest Trading App watchlist', label: 'Watchlist' },
+                        { src: '/demo/nestFigma.webp', alt: 'Nest Trading App Figma design', label: 'Figma Design' },
                     ]}
                 />
             </section>
 
             {/* portfolio */}
-            <section className="w-full mb-12">
+            <section id="portfolio" className="w-full mb-12">
                 <div className="mb-2">
                     <h2 className="text-3xl font-semibold text-primary mb-2 border-b">My portfolio</h2>
                 </div>
