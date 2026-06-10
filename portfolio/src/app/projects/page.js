@@ -55,6 +55,37 @@ export default function Projects() {
                 />
             </section>
 
+            {/* smple */}
+            <section id="smple" className="w-full mb-12">
+                <div className="mb-2">
+                    <h2 className="text-3xl font-semibold text-primary mb-2 border-b">SMPLE</h2>
+                </div>
+                <div className="flex flex-wrap gap-3 mb-3">
+                    <Icon icon="logos:android-icon" className='w-7 h-7' />
+                    <Icon icon="logos:kotlin-icon" className='w-7 h-7' />
+                    <Icon icon="logos:supabase-icon" className='w-7 h-7' />
+                    <Icon icon="logos:git-icon" className='w-7 h-7' />
+                    <Icon icon="logos:github-icon" className='w-7 h-7' />
+                </div>
+                <p className="text-foreground/70 text-sm mb-4">
+                    SMPLE is a minimalist Android gym companion designed for speed. Open the app, type your workout in a notes-style format (e.g. "Bench 4×12 @ 225"), and save — no mandatory fields, no clutter. Built with Kotlin and Jetpack Compose following MVVM architecture, it supports Push/Pull/Legs categorization, offline-first local caching via Room with automatic Supabase sync on reconnect, and Supabase Auth for secure user management with Row Level Security enforced at the database level.
+                </p>
+                <ProjectShowcase
+                    videoSrc="/videos/smplDemo.mp4"
+                    videoLabel="Demo"
+                    images={[
+                        { src: '/demo/SMPLE-landing-view.png', alt: 'SMPLE landing screen', label: 'Landing' },
+                        { src: '/demo/SMPLE-login-view.png', alt: 'SMPLE login screen', label: 'Login' },
+                        { src: '/demo/SMPLE-home-view.png', alt: 'SMPLE home screen', label: 'Home' },
+                        { src: '/demo/SMPLE-workouts-view.png', alt: 'SMPLE workouts screen', label: 'Workouts' },
+                        { src: '/demo/SMPLE-entries-view.png', alt: 'SMPLE entries screen', label: 'Entries' },
+                        { src: '/demo/SMPLE-entry-view.png', alt: 'SMPLE entry detail screen', label: 'Entry' },
+                        { src: '/demo/SMPLE-edit-workout-view.png', alt: 'SMPLE edit workout screen', label: 'Edit Workout' },
+                        { src: '/demo/SMPLE-profile-view.png', alt: 'SMPLE profile screen', label: 'Profile' },
+                    ]}
+                />
+            </section>
+
             {/* respai hub */}
             <section id="respai-hub" className="w-full mb-12">
                 <div className="mb-2">

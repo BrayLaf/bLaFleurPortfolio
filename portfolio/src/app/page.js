@@ -72,6 +72,19 @@ export default function Home() {
 
           <div>
             <div className="flex items-center justify-between mb-1">
+              <h3 className="text-base font-semibold text-primary">SMPLE</h3>
+              <Link href="/projects#smple" className="text-xs text-primary/60 hover:text-primary transition-colors">View project →</Link>
+            </div>
+            <p className="text-foreground/70 text-sm mb-2">Minimalist Android gym companion — log workouts in a notes-style format, categorized by Push/Pull/Legs, with offline-first Room cache and Supabase sync.</p>
+            <div className="flex flex-wrap gap-2">
+              <Icon icon="logos:android-icon" className='w-5 h-5' />
+              <Icon icon="logos:kotlin-icon" className='w-5 h-5' />
+              <Icon icon="logos:supabase-icon" className='w-5 h-5' />
+            </div>
+          </div>
+
+          <div>
+            <div className="flex items-center justify-between mb-1">
               <h3 className="text-base font-semibold text-primary">RespAI Hub</h3>
               <Link href="/projects#respai-hub" className="text-xs text-primary/60 hover:text-primary transition-colors">View project →</Link>
             </div>
