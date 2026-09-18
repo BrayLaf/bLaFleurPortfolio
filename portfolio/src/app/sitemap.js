@@ -4,6 +4,7 @@ export default function sitemap() {
   const routes = [
     { path: "",         changeFrequency: "weekly",  priority: 1.0 },
     { path: "/projects",changeFrequency: "monthly", priority: 0.8 },
+    { path: "/vita-theme-creator", changeFrequency: "monthly", priority: 0.8 },
     { path: "/tools",   changeFrequency: "weekly",  priority: 0.9 },
     { path: "/resume",  changeFrequency: "monthly", priority: 0.6 },
     { path: "/contact", changeFrequency: "monthly", priority: 0.7 },

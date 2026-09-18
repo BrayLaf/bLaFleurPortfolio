@@ -21,4 +21,10 @@ No tests configured; do not write or run them.
 
 A project appears in two places, and both need updating: a summary card in the Projects section of `src/app/page.js`, and a full section in `src/app/projects/page.js` whose `id` matches the card's `/projects#<id>` link. Newest project goes first in both.
 
+A project big enough to need more than a section gets its own route, as `/vita-theme-creator` does: the page holds the long-form content, and the projects-page section and home card link to it rather than repeating it. Add any new route to `src/app/sitemap.js`.
+
 Each full section carries its media through `ProjectShowcase` (`videoSrc` plus an `images` array). Screenshots go in `public/demo/` as webp, demo videos in `public/videos/` as mp4 — convert large PNGs and gifs rather than committing them as-is. Verify any `@iconify` icon name against the Iconify API before using it; a wrong name renders as an invisible gap, not an error.
+
+## Release download links
+
+`/vita-theme-creator` links straight at the VitaThemeCreator repo's `releases/latest/download/vita-theme-creator-x86_64.AppImage` and `-amd64.deb`. Those filenames have no version in them on purpose — that repo's release workflow uploads a stable-named copy of each binary so the link always resolves to the newest release. Don't replace them with versioned filenames.
