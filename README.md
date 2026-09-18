@@ -12,9 +12,15 @@ This portfolio website serves as a central hub to display my software developmen
 - **Dark/Light Mode Toggle**: User-friendly theme switching for optimal viewing experience
 - **GitHub Activity Visualization**: Real-time GitHub contribution calendar using `react-github-calendar`
 - **Project Showcase**: Detailed project pages highlighting key work including:
+  - Vita Theme Creator (Cross-platform desktop app for PS Vita themes)
+  - Kaika (Interactive knowledge-graph proof of concept)
+  - SMPLE (Minimalist Android gym companion)
+  - RespAI Hub (Lead-scoring CRM for fire department outreach)
   - CoursePilot (Full-stack course management application)
   - Nest Trading App (Stock trading application)
   - This Portfolio (Meta showcase)
+- **Media Carousels**: Each project section pairs a demo video with screenshots
+  through the shared `ProjectShowcase` component
 - **Interactive UI**: Built with Iconify icons for visual technology stack representation
 - **Performance Optimized**: Leveraging Next.js 16's latest optimizations and React Compiler
 - **Modern Typography**: Using Geist font family for clean, professional aesthetics
@@ -44,11 +50,18 @@ portfolio/
 │   │   ├── globals.css      # Global styles
 │   │   ├── projects/
 │   │   │   └── page.js      # Projects page
+│   │   ├── tools/           # Tools page
+│   │   ├── contact/         # Contact page
+│   │   ├── api/contact/     # Contact form handler (Resend)
 │   │   └── resume/          # Resume page
 │   └── components/
 │       ├── Header.jsx       # Navigation header with theme toggle
-│       └── Footer.jsx       # Footer with social links
-├── public/                  # Static assets
+│       ├── Footer.jsx       # Footer with social links
+│       └── ProjectShowcase.jsx  # Video/screenshot carousel
+├── public/
+│   ├── demo/                # Project screenshots (webp)
+│   ├── videos/              # Project demo videos (mp4)
+│   └── ...                  # Other static assets
 ├── package.json            # Project dependencies
 └── next.config.mjs         # Next.js configuration
 ```
@@ -133,6 +146,18 @@ Using Next.js font optimization with Geist Sans and Geist Mono font families for
 - **/resume** - Professional resume page
 
 ## 🌟 Featured Projects
+
+### Vita Theme Creator
+Cross-platform desktop app for building PlayStation Vita home-screen themes, built with Electron, React, and TypeScript. Renders a Vita-accurate live preview, exports installable theme packages, and ships Linux AppImage and `.deb` builds from GitHub Actions.
+
+### Kaika
+Single-page interactive knowledge-graph proof of concept built with React Flow, Zustand, and Dagre.
+
+### SMPLE
+Minimalist Android gym companion written in Kotlin and Jetpack Compose, with an offline-first Room cache and Supabase sync.
+
+### RespAI Hub
+Full-stack lead-scoring CRM for fire department outreach, combining public datasets with automated sync workflows and a React dashboard.
 
 ### CoursePilot
 Full-stack web application for course discovery and registration, built with React, Node.js/Express, and Azure SQL.
