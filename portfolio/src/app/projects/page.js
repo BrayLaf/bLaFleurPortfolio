@@ -36,6 +36,10 @@ export default function Projects() {
                     <Link href="https://github.com/BrayLaf/VitaThemeCreator" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-8 h-8 border-2 border-primary rounded text-primary hover:bg-primary/10 transition-colors" title="GitHub Repository">
                         <Icon icon="mdi:github" className="w-4 h-4" />
                     </Link>
+                    <Link href="/vita-theme-creator" className="flex items-center gap-1.5 px-3 h-8 border-2 border-primary rounded text-primary text-xs hover:bg-primary/10 transition-colors" title="Full project page and downloads">
+                        <Icon icon="mdi:download" className="w-4 h-4" />
+                        Download &amp; details
+                    </Link>
                 </div>
                 <p className="text-foreground/70 text-sm mb-4">
                     Vita Theme Creator is a desktop app for building custom home-screen themes for the PlayStation Vita, and a cross-platform reimplementation of ThemeBUILDER, a Windows-only tool by AntHJ whose reverse-engineering of the Vita theme format this project is built on. Written in TypeScript with Electron and React, it renders a Vita-accurate live preview while you edit the lockscreen, ten home pages, and seventeen system icons, then exports real installable output: correctly sized PNGs, a generated theme.xml, composited icons, ATRAC9 audio, and a packaged zip. The export pipeline runs in the main process with sharp, and image work is isolated in a child process on Linux to work around a GLib conflict between sharp and Electron. Tagged releases build AppImage and .deb packages through GitHub Actions.

@@ -60,7 +60,7 @@ export default function Home() {
           <div>
             <div className="flex items-center justify-between mb-1">
               <h3 className="text-base font-semibold text-primary">Vita Theme Creator</h3>
-              <Link href="/projects#vita-theme-creator" className="text-xs text-primary/60 hover:text-primary transition-colors">View project →</Link>
+              <Link href="/vita-theme-creator" className="text-xs text-primary/60 hover:text-primary transition-colors">View project →</Link>
             </div>
             <p className="text-foreground/70 text-sm mb-2">Cross-platform desktop app for building PlayStation Vita home-screen themes — Vita-accurate live preview, real installable exports, and Linux packages built in CI.</p>
             <div className="flex flex-wrap gap-2">

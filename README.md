@@ -50,6 +50,8 @@ portfolio/
 │   │   ├── globals.css      # Global styles
 │   │   ├── projects/
 │   │   │   └── page.js      # Projects page
+│   │   ├── vita-theme-creator/
+│   │   │   └── page.js      # Vita Theme Creator project page
 │   │   ├── tools/           # Tools page
 │   │   ├── contact/         # Contact page
 │   │   ├── api/contact/     # Contact form handler (Resend)
@@ -143,12 +145,15 @@ Using Next.js font optimization with Geist Sans and Geist Mono font families for
 
 - **/** - Home page with introduction and featured projects
 - **/projects** - Comprehensive projects showcase
+- **/vita-theme-creator** - Dedicated project page with Linux downloads
+- **/tools** - Browser-based utilities
+- **/contact** - Contact form
 - **/resume** - Professional resume page
 
 ## 🌟 Featured Projects
 
 ### Vita Theme Creator
-Cross-platform desktop app for building PlayStation Vita home-screen themes, built with Electron, React, and TypeScript. Renders a Vita-accurate live preview, exports installable theme packages, and ships Linux AppImage and `.deb` builds from GitHub Actions.
+Cross-platform desktop app for building PlayStation Vita home-screen themes, built with Electron, React, and TypeScript. Renders a Vita-accurate live preview, exports installable theme packages, and ships Linux AppImage and `.deb` builds from GitHub Actions. Has its own page at `/vita-theme-creator`, with direct download links for the newest Linux release.
 
 ### Kaika
 Single-page interactive knowledge-graph proof of concept built with React Flow, Zustand, and Dagre.
