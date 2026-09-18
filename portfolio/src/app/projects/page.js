@@ -5,10 +5,10 @@ import ProjectShowcase from '@/components/ProjectShowcase';
 
 export const metadata = {
   title: "Projects",
-  description: "Explore Braydon Lafleur's portfolio projects including CoursePilot and other full-stack web applications built with React, Node.js, Azure, and modern technologies.",
+  description: "Explore Braydon Lafleur's portfolio projects including Vita Theme Creator, CoursePilot, and other full-stack applications built with React, Electron, Node.js, Azure, and modern technologies.",
   openGraph: {
     title: "Projects | Braydon Lafleur",
-    description: "Explore my portfolio projects including CoursePilot and other full-stack web applications.",
+    description: "Explore my portfolio projects including Vita Theme Creator, CoursePilot, and other full-stack applications.",
   },
 };
 
@@ -16,6 +16,43 @@ export default function Projects() {
     return (
         <div className="flex flex-col max-w-2xl mx-auto items-center px-6 py-8">
             <h1 className="sr-only">Projects</h1>
+
+            {/* vita theme creator */}
+            <section id="vita-theme-creator" className="w-full mb-12">
+                <div className="mb-2">
+                    <h2 className="text-3xl font-semibold text-primary mb-2 border-b">Vita Theme Creator</h2>
+                </div>
+                <div className="flex flex-wrap gap-3 mb-3">
+                    <Icon icon="logos:electron" className='w-7 h-7' />
+                    <Icon icon="logos:react" className='w-7 h-7' />
+                    <Icon icon="logos:typescript-icon" className='w-7 h-7' />
+                    <Icon icon="logos:nodejs-icon" className='w-7 h-7' />
+                    <Icon icon="logos:vitejs" className='w-7 h-7' />
+                    <Icon icon="logos:linux-tux" className='w-7 h-7' />
+                    <Icon icon="logos:git-icon" className='w-7 h-7' />
+                    <Icon icon="logos:github-icon" className='w-7 h-7' />
+                </div>
+                <div className="flex gap-2 mb-3">
+                    <Link href="https://github.com/BrayLaf/VitaThemeCreator" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-8 h-8 border-2 border-primary rounded text-primary hover:bg-primary/10 transition-colors" title="GitHub Repository">
+                        <Icon icon="mdi:github" className="w-4 h-4" />
+                    </Link>
+                </div>
+                <p className="text-foreground/70 text-sm mb-4">
+                    Vita Theme Creator is a desktop app for building custom home-screen themes for the PlayStation Vita, and a cross-platform reimplementation of ThemeBUILDER, a Windows-only tool by AntHJ whose reverse-engineering of the Vita theme format this project is built on. Written in TypeScript with Electron and React, it renders a Vita-accurate live preview while you edit the lockscreen, ten home pages, and seventeen system icons, then exports real installable output: correctly sized PNGs, a generated theme.xml, composited icons, ATRAC9 audio, and a packaged zip. The export pipeline runs in the main process with sharp, and image work is isolated in a child process on Linux to work around a GLib conflict between sharp and Electron. Tagged releases build AppImage and .deb packages through GitHub Actions.
+                </p>
+                <ProjectShowcase
+                    videoSrc="/videos/vitaThemeCreatorDemo.mp4"
+                    videoLabel="Demo"
+                    images={[
+                        { src: '/demo/vita-editor-lockscreen.webp', alt: 'Vita Theme Creator lockscreen editor', label: 'Lockscreen Editor' },
+                        { src: '/demo/vita-editor-home.webp', alt: 'Vita Theme Creator home page editor', label: 'Home Pages' },
+                        { src: '/demo/vita-editor-icons.webp', alt: 'Vita Theme Creator system icon editor', label: 'System Icons' },
+                        { src: '/demo/vita-icon-set-creator.webp', alt: 'Vita Theme Creator icon set creator', label: 'Icon Set Creator' },
+                        { src: '/demo/vita-library.webp', alt: 'Vita Theme Creator theme library', label: 'Theme Library' },
+                        { src: '/demo/vita-theme-example.webp', alt: 'A finished theme running on a PS Vita', label: 'Finished Theme' },
+                    ]}
+                />
+            </section>
 
             {/* kaika */}
             <section id="kaika" className="w-full mb-12">

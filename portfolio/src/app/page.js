@@ -59,6 +59,20 @@ export default function Home() {
 
           <div>
             <div className="flex items-center justify-between mb-1">
+              <h3 className="text-base font-semibold text-primary">Vita Theme Creator</h3>
+              <Link href="/projects#vita-theme-creator" className="text-xs text-primary/60 hover:text-primary transition-colors">View project →</Link>
+            </div>
+            <p className="text-foreground/70 text-sm mb-2">Cross-platform desktop app for building PlayStation Vita home-screen themes — Vita-accurate live preview, real installable exports, and Linux packages built in CI.</p>
+            <div className="flex flex-wrap gap-2">
+              <Icon icon="logos:electron" className='w-5 h-5' />
+              <Icon icon="logos:react" className='w-5 h-5' />
+              <Icon icon="logos:typescript-icon" className='w-5 h-5' />
+              <Icon icon="logos:nodejs-icon" className='w-5 h-5' />
+            </div>
+          </div>
+
+          <div>
+            <div className="flex items-center justify-between mb-1">
               <Image src="/kaika-logo.svg" alt="Kaika" width={120} height={35} className="h-7 w-auto" />
               <Link href="/projects#kaika" className="text-xs text-primary/60 hover:text-primary transition-colors">View project →</Link>
             </div>
