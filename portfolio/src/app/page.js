@@ -42,6 +42,45 @@ export default function Home() {
         </Link>
       </section>
       
+      <section className="w-full mb-12">
+        <h2 className="text-xl font-semibold text-primary mb-4 border-b">Work Experience</h2>
+        <div className="flex flex-col gap-6">
+
+          <div>
+            <div className="flex flex-wrap items-baseline justify-between gap-x-4">
+              <h3 className="text-base font-semibold text-primary">Incoming Internship</h3>
+              <span className="text-foreground/70 text-xs">October 2026</span>
+            </div>
+          </div>
+
+          <div>
+            <div className="flex flex-wrap items-baseline justify-between gap-x-4 mb-1">
+              <h3 className="text-base font-semibold text-primary">Backend Developer Intern · RoboGarden</h3>
+              <span className="text-foreground/70 text-xs">Jul 2026 – Sep 2026</span>
+            </div>
+            <p className="text-foreground/70 text-xs mb-2">Calgary, AB · 8 weeks</p>
+            <ul className="text-foreground/70 text-sm list-disc pl-5 space-y-1 mb-3">
+              <li>Audited the company&apos;s education platform in my first week, documenting 19 issues in an organized report.</li>
+              <li>Built a production Node.js/Express server in TypeScript for a mobile app: JWT access and refresh tokens, Postgres through Prisma, Redis-backed caching and rate limiting, pagination, and request validation that also generates the API docs.</li>
+              <li>Built a PHP/Laravel admin server over the same database, so staff can manage content through an interface instead of one-off database scripts. My first production PHP server.</li>
+              <li>Built a configurable AI service that any team can fork and set up for their own use case: works with any OpenAI-compatible model, RAG over Gemini or Ollama embeddings stored with sqlite-vec, token streaming, and guardrails against prompt injection and PII.</li>
+              <li>Wrapped up with handoff documentation covering every system, known gaps, and open decisions, so the project could continue after I left.</li>
+            </ul>
+            <div className="flex flex-wrap gap-2">
+              <Icon icon="logos:typescript-icon" className='w-5 h-5' />
+              <Icon icon="logos:nodejs-icon" className='w-5 h-5' />
+              <Icon icon="skill-icons:expressjs-light" className='w-5 h-5' />
+              <Icon icon="logos:postgresql" className='w-5 h-5' />
+              <Icon icon="logos:prisma" className='w-5 h-5' />
+              <Icon icon="logos:redis" className='w-5 h-5' />
+              <Icon icon="logos:php" className='w-5 h-5' />
+              <Icon icon="logos:laravel" className='w-5 h-5' />
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       <section className="w-full mb-12 overflow-x-auto">
         <h2 className="text-xl font-semibold text-primary mb-4 border-b">GitHub Activity</h2>
         <div className="flex justify-center">
