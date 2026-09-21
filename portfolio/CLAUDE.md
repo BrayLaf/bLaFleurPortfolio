@@ -25,6 +25,12 @@ A project big enough to need more than a section gets its own route, as `/vita-t
 
 Each full section carries its media through `ProjectShowcase` (`videoSrc` plus an `images` array). Screenshots go in `public/demo/` as webp, demo videos in `public/videos/` as mp4 — convert large PNGs and gifs rather than committing them as-is. Verify any `@iconify` icon name against the Iconify API before using it; a wrong name renders as an invisible gap, not an error.
 
+## Work experience
+
+The Work Experience section sits on the home page (`src/app/page.js`), between the intro and GitHub Activity, newest role first. An upcoming role is listed as it's been announced and no further. Right now that's just "Incoming Internship" and a start month, with no company or title until the user provides them.
+
+Only use details the user has given you. Never fill in responsibilities, titles, or numbers. The RoboGarden entry describes its work in general terms ("a Node.js/Express server for a mobile app", "an admin server", "an AI service") on purpose. The app it was built for hasn't launched, so don't name that product or describe its specific features, even though its source repos (`rg-connect-backend`, `rg-admin-backend`, `rg-ai-service`) are on this machine.
+
 ## Release download links
 
 `/vita-theme-creator` links straight at the VitaThemeCreator repo's `releases/latest/download/vita-theme-creator-x86_64.AppImage` and `-amd64.deb`. Those filenames have no version in them on purpose — that repo's release workflow uploads a stable-named copy of each binary so the link always resolves to the newest release. Don't replace them with versioned filenames.

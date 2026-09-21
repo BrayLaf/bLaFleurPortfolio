@@ -10,6 +10,7 @@ This portfolio website serves as a central hub to display my software developmen
 
 - **Responsive Design**: Fully responsive layout that works seamlessly across desktop, tablet, and mobile devices
 - **Dark/Light Mode Toggle**: User-friendly theme switching for optimal viewing experience
+- **Work Experience**: Internship history on the home page, with each role's stack shown as icons
 - **GitHub Activity Visualization**: Real-time GitHub contribution calendar using `react-github-calendar`
 - **Project Showcase**: Detailed project pages highlighting key work including:
   - Vita Theme Creator (Cross-platform desktop app for PS Vita themes)
@@ -114,6 +115,7 @@ npm run start
 ### Home Page
 - Professional introduction with profile section
 - Technology stack visualization with Iconify icons
+- Work experience, newest first, including incoming roles
 - GitHub activity calendar integration
 - Featured project previews
 - Quick access to resume
