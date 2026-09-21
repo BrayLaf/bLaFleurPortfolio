@@ -30,6 +30,11 @@ export default function Home() {
           <Icon icon="logos:github-icon" className='w-10 h-10' />
           <Icon icon="logos:postman-icon" className='w-10 h-10' />
           <Icon icon="logos:supabase-icon" className='w-10 h-10' />
+          <Icon icon="logos:postgresql" className='w-10 h-10' />
+          <Icon icon="logos:prisma" className='w-10 h-10' />
+          <Icon icon="logos:redis" className='w-10 h-10' />
+          <Icon icon="logos:php" className='w-10 h-10' />
+          <Icon icon="logos:laravel" className='w-10 h-10' />
           <Icon icon="logos:react" className='w-10 h-10' />
           <Icon icon="logos:nextjs-icon" className='w-10 h-10' />
           <Icon icon="material-icon-theme:jenkins" className='w-10 h-10' />
