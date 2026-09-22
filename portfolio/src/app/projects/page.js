@@ -2,6 +2,7 @@ import { Icon } from '@iconify/react';
 import Link from 'next/link';
 import Image from 'next/image';
 import ProjectShowcase from '@/components/ProjectShowcase';
+import ThemedIcon from '@/components/ThemedIcon';
 
 export const metadata = {
   title: "Projects",
@@ -30,7 +31,7 @@ export default function Projects() {
                     <Icon icon="logos:vitejs" className='w-7 h-7' />
                     <Icon icon="logos:linux-tux" className='w-7 h-7' />
                     <Icon icon="logos:git-icon" className='w-7 h-7' />
-                    <Icon icon="logos:github-icon" className='w-7 h-7' />
+                    <ThemedIcon icon="logos:github-icon" className='w-7 h-7' />
                 </div>
                 <div className="flex gap-2 mb-3">
                     <Link href="https://github.com/BrayLaf/VitaThemeCreator" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-8 h-8 border-2 border-primary rounded text-primary hover:bg-primary/10 transition-colors" title="GitHub Repository">
@@ -70,7 +71,7 @@ export default function Projects() {
                     <Icon icon="logos:react" className='w-7 h-7' />
                     <Icon icon="logos:typescript-icon" className='w-7 h-7' />
                     <Icon icon="logos:git-icon" className='w-7 h-7' />
-                    <Icon icon="logos:github-icon" className='w-7 h-7' />
+                    <ThemedIcon icon="logos:github-icon" className='w-7 h-7' />
                 </div>
                 <div className="flex gap-2 mb-3">
                     <Link href="https://github.com/BrayLaf/Kaika-Tech-Demo" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-8 h-8 border-2 border-primary rounded text-primary hover:bg-primary/10 transition-colors" title="GitHub Repository">
@@ -106,7 +107,7 @@ export default function Projects() {
                     <Icon icon="logos:kotlin-icon" className='w-7 h-7' />
                     <Icon icon="logos:supabase-icon" className='w-7 h-7' />
                     <Icon icon="logos:git-icon" className='w-7 h-7' />
-                    <Icon icon="logos:github-icon" className='w-7 h-7' />
+                    <ThemedIcon icon="logos:github-icon" className='w-7 h-7' />
                 </div>
                 <p className="text-foreground/70 text-sm mb-4">
                     SMPLE is a minimalist Android gym companion designed for speed. Open the app, type your workout in a notes-style format (e.g. "Bench 4×12 @ 225"), and save — no mandatory fields, no clutter. Built with Kotlin and Jetpack Compose following MVVM architecture, it supports Push/Pull/Legs categorization, offline-first local caching via Room with automatic Supabase sync on reconnect, and Supabase Auth for secure user management with Row Level Security enforced at the database level.
@@ -140,7 +141,7 @@ export default function Projects() {
                     <Icon icon="logos:nodejs-icon" className='w-7 h-7' />
                     <Icon icon="logos:vitejs" className='w-7 h-7' />
                     <Icon icon="logos:git-icon" className='w-7 h-7' />
-                    <Icon icon="logos:github-icon" className='w-7 h-7' />
+                    <ThemedIcon icon="logos:github-icon" className='w-7 h-7' />
                     <Icon icon="logos:postman-icon" className='w-7 h-7' />
                     <Icon icon="logos:react" className='w-7 h-7' />
                     <Icon icon="logos:typescript-icon" className='w-7 h-7' />
@@ -174,7 +175,7 @@ export default function Projects() {
                     <Icon icon="logos:nodejs-icon" className='w-7 h-7' />
                     <Icon icon="skill-icons:expressjs-light" className='w-7 h-7' />
                     <Icon icon="logos:git-icon" className='w-7 h-7' />
-                    <Icon icon="logos:github-icon" className='w-7 h-7' />
+                    <ThemedIcon icon="logos:github-icon" className='w-7 h-7' />
                     <Icon icon="logos:postman-icon" className='w-7 h-7' />
                     <Icon icon="logos:react" className='w-7 h-7' />
                 </div>
@@ -206,7 +207,7 @@ export default function Projects() {
                     <Icon icon="logos:c-sharp" className='w-7 h-7' />
                     <Icon icon="logos:dotnet" className='w-7 h-7' />
                     <Icon icon="logos:git-icon" className='w-7 h-7' />
-                    <Icon icon="logos:github-icon" className='w-7 h-7' />
+                    <ThemedIcon icon="logos:github-icon" className='w-7 h-7' />
                     <Icon icon="logos:supabase-icon" className='w-7 h-7' />
                 </div>
                 <div className="flex gap-2 mb-3">
@@ -237,7 +238,7 @@ export default function Projects() {
                     <Icon icon="logos:javascript" className='w-7 h-7' />
                     <Icon icon="logos:figma" className='w-7 h-7' />
                     <Icon icon="logos:git-icon" className='w-7 h-7' />
-                    <Icon icon="logos:github-icon" className='w-7 h-7' />
+                    <ThemedIcon icon="logos:github-icon" className='w-7 h-7' />
                     <Icon icon="logos:react" className='w-7 h-7' />
                     <Icon icon="logos:nextjs-icon" className='w-7 h-7' />
                 </div>
