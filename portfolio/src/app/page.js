@@ -2,6 +2,7 @@ import { Icon } from '@iconify/react';
 import { GitHubCalendar } from 'react-github-calendar';
 import Link from 'next/link';
 import Image from 'next/image';
+import ThemedIcon from '@/components/ThemedIcon';
 
 export default function Home() {
   return (
@@ -27,11 +28,11 @@ export default function Home() {
           <Icon icon="skill-icons:expressjs-light" className='w-10 h-10' />
           <Icon icon="devicon-plain:bash" className='w-10 h-10' />
           <Icon icon="logos:git-icon" className='w-10 h-10' />
-          <Icon icon="logos:github-icon" className='w-10 h-10' />
+          <ThemedIcon icon="logos:github-icon" className='w-10 h-10' />
           <Icon icon="logos:postman-icon" className='w-10 h-10' />
           <Icon icon="logos:supabase-icon" className='w-10 h-10' />
           <Icon icon="logos:postgresql" className='w-10 h-10' />
-          <Icon icon="logos:prisma" className='w-10 h-10' />
+          <ThemedIcon icon="logos:prisma" className='w-10 h-10' />
           <Icon icon="logos:redis" className='w-10 h-10' />
           <Icon icon="logos:php" className='w-10 h-10' />
           <Icon icon="logos:laravel" className='w-10 h-10' />
@@ -76,7 +77,7 @@ export default function Home() {
               <Icon icon="logos:nodejs-icon" className='w-5 h-5' />
               <Icon icon="skill-icons:expressjs-light" className='w-5 h-5' />
               <Icon icon="logos:postgresql" className='w-5 h-5' />
-              <Icon icon="logos:prisma" className='w-5 h-5' />
+              <ThemedIcon icon="logos:prisma" className='w-5 h-5' />
               <Icon icon="logos:redis" className='w-5 h-5' />
               <Icon icon="logos:php" className='w-5 h-5' />
               <Icon icon="logos:laravel" className='w-5 h-5' />

@@ -2,6 +2,7 @@ import { Icon } from '@iconify/react';
 import Link from 'next/link';
 import Image from 'next/image';
 import ProjectShowcase from '@/components/ProjectShowcase';
+import ThemedIcon from '@/components/ThemedIcon';
 
 const REPO = 'https://github.com/BrayLaf/VitaThemeCreator';
 // Stable release filenames — every release uploads a copy with the version
@@ -127,7 +128,7 @@ export default function VitaThemeCreator() {
           <Icon icon="logos:vitejs" className="w-7 h-7" />
           <Icon icon="logos:linux-tux" className="w-7 h-7" />
           <Icon icon="logos:git-icon" className="w-7 h-7" />
-          <Icon icon="logos:github-icon" className="w-7 h-7" />
+          <ThemedIcon icon="logos:github-icon" className="w-7 h-7" />
         </div>
 
         {/* download */}
