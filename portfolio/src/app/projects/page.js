@@ -18,6 +18,51 @@ export default function Projects() {
         <div className="flex flex-col max-w-2xl mx-auto items-center px-6 py-8">
             <h1 className="sr-only">Projects</h1>
 
+            {/* boosted cards */}
+            <section id="boosted-cards" className="w-full mb-12">
+                <div className="mb-2">
+                    <h2 className="text-3xl font-semibold text-primary mb-2 border-b">Boosted Cards</h2>
+                </div>
+                <div className="flex flex-wrap gap-3 mb-3">
+                    <Icon icon="logos:nextjs-icon" className='w-7 h-7' />
+                    <Icon icon="logos:react" className='w-7 h-7' />
+                    <Icon icon="logos:typescript-icon" className='w-7 h-7' />
+                    <Icon icon="logos:tailwindcss-icon" className='w-7 h-7' />
+                    <Icon icon="logos:nodejs-icon" className='w-7 h-7' />
+                    <Icon icon="skill-icons:expressjs-light" className='w-7 h-7' />
+                    <ThemedIcon icon="logos:prisma" className='w-7 h-7' />
+                    <Icon icon="logos:postgresql" className='w-7 h-7' />
+                    <Icon icon="logos:supabase-icon" className='w-7 h-7' />
+                    <Icon icon="logos:stripe" className='w-7 h-7' />
+                    <Icon icon="logos:github-actions" className='w-7 h-7' />
+                </div>
+                <div className="flex gap-2 mb-3">
+                    <Link href="https://boostedcards.shop" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-8 h-8 border-2 border-primary rounded text-primary hover:bg-primary/10 transition-colors" title="Live Site">
+                        <Icon icon="mdi:link-variant" className="w-4 h-4" />
+                    </Link>
+                    <span className="flex items-center gap-1.5 px-3 h-8 border-2 border-primary/40 rounded text-primary/40 text-xs cursor-default" title="This repository is private">
+                        <Icon icon="mdi:lock" className="w-4 h-4" />
+                        Private repo
+                    </span>
+                </div>
+                <p className="text-foreground/70 text-sm mb-4">
+                    Boosted Cards is a Magic: The Gathering singles storefront and buylist based in Calgary, built with <Link href="https://www.shogohardy.site/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Shogo Hardy</Link> as a TypeScript monorepo: a Next.js frontend on Vercel and an Express/Prisma API on Render over Supabase Postgres. Customers can browse and search the inventory, paste a decklist to match it against what&apos;s in stock, and check out through Stripe&apos;s embedded Payment Element, with totals always priced server-side and order finalization shared idempotently between the client and the Stripe webhook. A buylist lets customers quote and submit their own cards for cash or store credit, which admins review line by line before the payout lands in a transactional store-credit ledger. Prices blend Scryfall and MTGJSON data into a condition-adjusted CAD market price, and the admin side covers inventory with CSV imports and per-collection stock tracking, orders, promo codes, and versioned pricing configs. Auth uses short-lived JWTs with rotating, revocable refresh tokens in httpOnly cookies.
+                </p>
+                <ProjectShowcase
+                    videoSrc="/videos/BoostedCardsDemo.mp4"
+                    videoLabel="Demo"
+                    images={[
+                        { src: '/demo/boosted-home.webp', alt: 'Boosted Cards home page', label: 'Home' },
+                        { src: '/demo/boosted-browse.webp', alt: 'Boosted Cards browse page', label: 'Browse' },
+                        { src: '/demo/boosted-product.webp', alt: 'Boosted Cards product page', label: 'Product' },
+                        { src: '/demo/boosted-display-case.webp', alt: 'Boosted Cards display case', label: 'Display Case' },
+                        { src: '/demo/boosted-decklist.webp', alt: 'Boosted Cards decklist search', label: 'Decklist Search' },
+                        { src: '/demo/boosted-checkout.webp', alt: 'Boosted Cards checkout', label: 'Checkout' },
+                        { src: '/demo/boosted-sell.webp', alt: 'Boosted Cards buylist sell page', label: 'Sell Your Cards' },
+                    ]}
+                />
+            </section>
+
             {/* vita theme creator */}
             <section id="vita-theme-creator" className="w-full mb-12">
                 <div className="mb-2">
@@ -109,6 +154,11 @@ export default function Projects() {
                     <Icon icon="logos:git-icon" className='w-7 h-7' />
                     <ThemedIcon icon="logos:github-icon" className='w-7 h-7' />
                 </div>
+                <div className="flex gap-2 mb-3">
+                    <Link href="https://github.com/BrayLaf/SMPLE-Kotlin" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-8 h-8 border-2 border-primary rounded text-primary hover:bg-primary/10 transition-colors" title="GitHub Repository">
+                        <Icon icon="mdi:github" className="w-4 h-4" />
+                    </Link>
+                </div>
                 <p className="text-foreground/70 text-sm mb-4">
                     SMPLE is a minimalist Android gym companion designed for speed. Open the app, type your workout in a notes-style format (e.g. "Bench 4×12 @ 225"), and save — no mandatory fields, no clutter. Built with Kotlin and Jetpack Compose following MVVM architecture, it supports Push/Pull/Legs categorization, offline-first local caching via Room with automatic Supabase sync on reconnect, and Supabase Auth for secure user management with Row Level Security enforced at the database level.
                 </p>
@@ -146,8 +196,13 @@ export default function Projects() {
                     <Icon icon="logos:react" className='w-7 h-7' />
                     <Icon icon="logos:typescript-icon" className='w-7 h-7' />
                 </div>
-                <span className="inline-block px-3 py-1 border-2 text-sm border-primary/40 rounded-full text-primary/40 cursor-default font-medium" title="This repository is private">Private Repo</span>
-                <p className="text-foreground/70 text-sm mb-4 mt-2">
+                <div className="flex gap-2 mb-3">
+                    <span className="flex items-center gap-1.5 px-3 h-8 border-2 border-primary/40 rounded text-primary/40 text-xs cursor-default" title="This repository is private">
+                        <Icon icon="mdi:lock" className="w-4 h-4" />
+                        Private repo
+                    </span>
+                </div>
+                <p className="text-foreground/70 text-sm mb-4">
                     RespAi Hub is a full-stack platform built to help identify, prioritize, and manage outreach opportunities for fire departments across the U.S. It combines public datasets (including FEMA and wildfire-related data), automated data sync workflows, and lead-scoring logic to surface high-value prospects, then provides a secure CRM interface for managing departments, users, and configuration settings. The backend uses serverless API functions and database models for scalable data operations, while the frontend delivers a clean dashboard experience for tracking leads and supporting data-driven decision-making.
                 </p>
                 <ProjectShowcase

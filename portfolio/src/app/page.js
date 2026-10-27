@@ -43,8 +43,9 @@ export default function Home() {
           <Icon icon="logos:java" className='w-10 h-10' />
         </div>
         
-        <Link href="/resume" className="px-3 py-1 max-w-30 border-2 text-sm border-primary rounded-full text-primary hover:bg-primary/10 transition-colors">
-        My Resume
+        <Link href="/resume" className="self-start flex items-center gap-1.5 px-3 h-8 border-2 border-primary rounded text-primary text-xs hover:bg-primary/10 transition-colors">
+          <Icon icon="mdi:file-document-outline" className="w-4 h-4" />
+          My Resume
         </Link>
       </section>
       
@@ -53,10 +54,11 @@ export default function Home() {
         <div className="flex flex-col gap-6">
 
           <div>
-            <div className="flex flex-wrap items-baseline justify-between gap-x-4">
-              <h3 className="text-base font-semibold text-primary">Incoming Internship</h3>
-              <span className="text-foreground/70 text-xs">October 2026</span>
+            <div className="flex flex-wrap items-baseline justify-between gap-x-4 mb-1">
+              <h3 className="text-base font-semibold text-primary">Software Developer Intern · Mitacs</h3>
+              <span className="text-foreground/70 text-xs">Oct 2026 – Present</span>
             </div>
+            <p className="text-foreground/70 text-xs">Hosted at the University of Calgary · Calgary, AB</p>
           </div>
 
           <div>
@@ -101,6 +103,22 @@ export default function Home() {
       <section className="w-full mb-6">
         <h2 className="text-xl font-semibold text-primary mb-4 border-b">Projects</h2>
         <div className="flex flex-col gap-5">
+
+          <div>
+            <div className="flex items-center justify-between mb-1">
+              <h3 className="text-base font-semibold text-primary">Boosted Cards</h3>
+              <Link href="/projects#boosted-cards" className="text-xs text-primary/60 hover:text-primary transition-colors">View project →</Link>
+            </div>
+            <p className="text-foreground/70 text-sm mb-2">Magic: The Gathering singles storefront and buylist — Stripe checkout, trade-ins for cash or store credit, and an admin dashboard over an Express/Prisma API.</p>
+            <div className="flex flex-wrap gap-2">
+              <Icon icon="logos:nextjs-icon" className='w-5 h-5' />
+              <Icon icon="logos:typescript-icon" className='w-5 h-5' />
+              <Icon icon="skill-icons:expressjs-light" className='w-5 h-5' />
+              <ThemedIcon icon="logos:prisma" className='w-5 h-5' />
+              <Icon icon="logos:postgresql" className='w-5 h-5' />
+              <Icon icon="logos:stripe" className='w-5 h-5' />
+            </div>
+          </div>
 
           <div>
             <div className="flex items-center justify-between mb-1">
