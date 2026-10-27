@@ -31,7 +31,7 @@ Each full section carries its media through `ProjectShowcase` (`videoSrc` plus a
 
 ## Work experience
 
-The Work Experience section sits on the home page (`src/app/page.js`), between the intro and GitHub Activity, newest role first. An upcoming role is listed as it's been announced and no further. Right now that's just "Incoming Internship" and a start month, with no company or title until the user provides them.
+The Work Experience section sits on the home page (`src/app/page.js`), between the intro and GitHub Activity, newest role first. An upcoming role is listed as it's been announced and no further. The current Mitacs internship (started Oct 2026, hosted at the University of Calgary) has only a title, dates, and location so far; add bullets and tech icons only once the user provides them.
 
 Only use details the user has given you. Never fill in responsibilities, titles, or numbers. The RoboGarden entry describes its work in general terms ("a Node.js/Express server for a mobile app", "an admin server", "an AI service") on purpose. The app it was built for hasn't launched, so don't name that product or describe its specific features, even though its source repos (`rg-connect-backend`, `rg-admin-backend`, `rg-ai-service`) are on this machine.
 
